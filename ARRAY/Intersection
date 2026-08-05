@@ -1,0 +1,17 @@
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        int count = 0;
+        int[] intersect = new int[nums1.length];
+        for(int i = 0; i < nums2.length; i++){
+            for(int k = 0; k < nums1.length; k++){
+                if(nums2[i] == nums1[k]){
+                    intersect[count] = nums2[i];
+                    count++;
+                    nums1[k] = -1;
+                    break;
+                }
+            }
+        }
+        return Arrays.copyOf(intersect,count);
+    }
+}
